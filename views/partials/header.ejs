@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/css/table.css">
     <link rel="stylesheet" href="/css/responsivity.css">
     <link rel="stylesheet" href="/css/personal-details.css">
+    <link rel="stylesheet" href="/css/form.css">
      
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
@@ -29,23 +30,23 @@
 
         <div class="menu-items">
             <ul class="nav-links">
-                <li><a href="#">
+                <li value="dashboard" onclick="showSectionDetails('dashboard')"><a href="#">
                     <i class="uil uil-estate"></i>
                     <span class="link-name">Dashboard</span>
                 </a></li>
-                <li><a href="#">
+                <li value="department" onclick="showSectionDetails('department')"><a href="#">
                     <i class="uil uil-files-landscapes"></i>
                     <span class="link-name">Department</span>
                 </a></li>
-                <li><a href="#">
+                <li value="employee_details" onclick="showSectionDetails('department')"><a href="#">
                     <i class="uil uil-chart"></i>
                     <span class="link-name">Employee Details</span>
                 </a></li>
-                <li><a href="#">
+                <li value="payroll" onclick="showSectionDetails('payroll')"><a href="#">
                     <i class="uil uil-comments"></i>
                     <span class="link-name">Payroll</span>
                 </a></li>
-                <li><a href="#">
+                <li value="addEmployee" onclick="showSectionDetails('addEmployee')"><a href="#">
                     <i class="uil uil-share"></i>
                     <span class="link-name">Add Employee</span>
                 </a></li>

@@ -9,6 +9,7 @@
 
 :root{
     /* ===== Colors ===== */
+    --body-bgcolor: #d6d8e7;
     --primary-color: #0E4BF1;
     --panel-color: #FFF;
     --text-color: #000;
@@ -28,7 +29,7 @@
 
 body{
     min-height: 100vh;
-    background-color: var(--primary-color);
+    background-color: var(--body-bgcolor);
 }
 body.dark{
     --primary-color: #3A3B3C;

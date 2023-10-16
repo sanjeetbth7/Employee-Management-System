@@ -39,7 +39,11 @@ const pool = mysql.createPool({
 
 
 
-
+let curentUser={
+  role:"",
+  username:"",
+  password:""
+}
 
 
 app.get("/", async (req, res) => {
@@ -54,10 +58,29 @@ app.get("/", async (req, res) => {
 });
 
   
-app.post("/admin-dashboard", async (req, res) => {
+app.get("/admin-dashboard", async (req, res) => {
     try {
-        const Employees = await pool.query("SELECT * FROM Employee");
-        res.render("admin-dashboard",{employees : Employees[0]});
+      if (curentUser.role==="admin") {
+            const results = await pool.query('SELECT * FROM admin WHERE username =?', [curentUser.username]);
+            
+            // Check if user with provided username exists
+            if (results.length > 0) {
+              const [user] = results[0];
+              if (curentUser.password === user.password) {
+                const Employees = await pool.query("SELECT * FROM Employee");
+                res.render("admin-dashboard",{user:user,employees:Employees[0]});
+              } 
+              else {
+                res.send('Incorrect password');
+              }
+            } 
+            else {
+              res.send('User not found');
+            }
+        
+      } else{
+        res.redirect("/login");
+      }
         
     } catch (error) {
         // Handle errors
@@ -81,23 +104,11 @@ app.get("/logout", (req,res)=>{
   res.redirect("/login");
 })
 
-// app.post("/admin-dashboard", async (req, res) => {
-//     try {
-//         const Employees = await pool.query("SELECT * FROM Employee");
-//         res.render("admin-dashboard",{employees : Employees[0]});
-        
-//     } catch (error) {
-//         // Handle errors
-//         console.error(error);
-//         res.status(500).send('Internal Server Error');
-//     } 
-// });
-
-
 
 app.post('/login', async (req, res) => {
   try {
     const {role, username, password } = req.body;
+    curentUser={role,username,password};
     if (role==="admin") {
           const results = await pool.query('SELECT * FROM admin WHERE username =?', [username]);
           
@@ -141,7 +152,21 @@ app.post('/login', async (req, res) => {
     res.status(500).send('Internal Server Error');
   }
 });
-  
+
+
+app.post('/addEmployee', (req, res) => {
+   const formData=req.body;
+
+  pool.query('INSERT INTO Employee SET ?', formData, (err, results) => {
+    if (err) {
+      console.log('Error inserting data into the database:', err);
+    } else {
+      console.log('Data inserted successfully');
+    }
+  });
+  res.redirect("/admin-dashboard");
+});
+
 app.post("/logout", (req,res)=>{
   res.redirect("/login");
 }) 

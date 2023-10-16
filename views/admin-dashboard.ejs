@@ -1,5 +1,4 @@
 <%- include('partials/header') %>
-
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
@@ -90,7 +89,58 @@
     <section class="department"></section>
     <section class="employee_details"></section>
     <section class="payroll"></section>
-    <section class="addEmployee"></section>
+
+
+
+
+    <section class="addEmployee">
+        <div class="container">
+            <h2 class="form-title">Add Employee</h2>
+            <form id="addEmployeeForm" action="/addEmployee" method="post">
+                <div class="form-row">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-row">   
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="qualification">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-row">
+                    <label for="qualification">contact</label>
+                    <input type="number" id="contact" name="contact" required>
+                </div>
+                
+                <div class="form-row">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </div>
+                <div class="form-row">
+                    <label for="gender">Gender:</label>
+                    <input type="radio" id="male" name="gender" value="Male"> <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female"> <label for= "female">Female</label>
+                    <input type="radio" id="other" name="gender" value="Other"> <label for="other">Other</label>
+                </div>
+                
+                <div class="form-row">
+                    <label for="doj">Password</label>
+                    <input type="text" id="password" name="password" required>
+                </div>
+                <div class="form-row">
+                    <label for="address">Address:</label>
+                    <textarea id="address" name="address" rows="4" required></textarea>
+                </div>
+                <!-- <button type="button" onclick="submitForm()" class="btn">Submit</button> -->
+                <input type="submit" value="Submit" class="btn">
+            </form>
+        </div>
+    </section>
 
     
 

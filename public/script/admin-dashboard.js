@@ -4,8 +4,7 @@ const body = document.querySelector("body"),
       sidebarToggle = body.querySelector(".sidebar-toggle");
 let getMode = localStorage.getItem("mode");
 
-const dashboard = body.querySelector(".dashboard");
-const department = body.querySelector(".department");
+
 
 if(getMode && getMode ==="dark"){
     body.classList.toggle("dark");
@@ -30,3 +29,64 @@ sidebarToggle.addEventListener("click", () => {
         localStorage.setItem("status", "open");
     }
 })
+
+
+
+
+/* Toggle admin pannel */
+
+const dashboard = body.querySelector(".dashboard");
+const department = body.querySelector(".department");
+const employee_details = body.querySelector(".employee_details");
+const payroll = body.querySelector(".payroll");
+const addEmployee = body.querySelector(".addEmployee");
+
+
+function showSectionDetails(sectionClass) {
+    const selectedValue = sectionClass;
+
+    // Hide all admin cards
+    dashboard.style.display = "none";
+    department.style.display = "none";
+    employee_details.style.display = "none";
+    payroll.style.display = "none";
+    addEmployee.style.display = "none";
+
+    // Show the selected admin card
+    const selectedCard = document.querySelector(`.${selectedValue}`);
+    selectedCard.style.display = "";
+}
+
+
+// Initialize with default admin
+showSectionDetails('dashboard');
+
+
+/* Submit add employee from */
+const addEmployeeForm = document.querySelector("#addEmployeeForm")
+// function submitForm() {
+    
+//     const formData = new FormData(addEmployeeForm);
+
+//     console.log(formData);
+//     // Convert FormData to a regular object
+//     const formObject = {};
+//     formData.forEach((value, key) => {
+//         formObject[key] = value;
+//     });
+
+//     console.log(formObject);
+//     fetch('/addEmployee', {
+//         method: 'POST',
+//         body: formObject,
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//     });
+
+//     console.log(formObject);
+//     addEmployeeForm.reset();
+// }
+
+
+

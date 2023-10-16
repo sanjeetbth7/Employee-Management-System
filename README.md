@@ -18,9 +18,7 @@ Follow these instructions to get a copy of the Employee Management System projec
   2) Install nodejs
      <pre>https://nodejs.org/en/download/current</pre>
   3) Install Expressjs
-     <pre>$mkdir myapp
-      $ cd myapp
-      $ npm init
+     <pre>$ npm init
       $ npm install express
       $ npm install express </pre>
   

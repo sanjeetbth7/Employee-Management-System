@@ -37,29 +37,28 @@
             <div class="activity">
                 <div class="title">
                     <i class="uil uil-clock-three"></i> 
-                     <span class="text">Recent Activity</span>
+                     <span class="text">Employees</span>
                 </div>
-
-                <table class="activity-data" >
-                    <thead class="data names">
-                        <tr >
-                            <th class="data-title">UserID</th>
-                            <th class="data-title">Name</th>
-                            <th class="data-title">Email</th>
-                            <th class="data-title">Contact</th>
-                            <th class="data-title">Address</th>
-                            <th class="data-title">Edit</th>
+                <table class="table">
+                    <thead class="th">
+                        <tr class="tr">
+                            <th class="td">UserID</th>
+                            <th class="td">Name</th>
+                            <th class="td">Email</th>
+                            <th class="td">Contact</th>
+                            <th class="td">Address</th>
+                            <th class="td">Edit</th>
                         </tr>
                     </thead>
-                    <tbody class="data names">
+                    <tbody class="tb">
                         <% employees.forEach(employee => { %>
-                        <tr >
-                            <td class="data-list"><%= employee.emp_id %></td>
-                            <td class="data-list"><%= employee.name %></td>
-                            <td class="data-list"><%= employee.email %></td>
-                            <td class="data-list"><%= employee.contact %></td>
-                            <td class="data-list"><%= employee.address %></td>
-                            <td class="data-list"><a href="#">edit now</a></td>
+                        <tr class="tr">
+                            <td class="td"><%= employee.emp_id %></td>
+                            <td class="td"><%= employee.name %></td>
+                            <td class="td"><%= employee.email %></td>
+                            <td class="td"><%= employee.contact %></td>
+                            <td class="td"><%= employee.address %></td>
+                            <td class="td"><a href="#">edit now</a></td>
                         </tr>
                         <% }); %>
                     </tbody>

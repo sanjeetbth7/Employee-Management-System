@@ -60,3 +60,29 @@ button:hover {
     font-weight: bold;
     margin-top: 10px;
 }
+
+/* Style for the select element */
+select {
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    appearance: none; /* Remove default arrow in some browsers */
+    background-color: #fff;
+    width: 200px;
+    outline: none; /* Remove default focus outline */
+}
+
+/* Style for the options within the select */
+option {
+    padding: 10px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+/* Style for the select when focused */
+select:focus {
+    border-color: #007bff; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add a subtle box shadow on focus */
+}

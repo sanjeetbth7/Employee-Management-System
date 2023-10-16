@@ -12,6 +12,26 @@
         </div>
 
         <div class="dash-content">
+
+            <div class="card">
+
+                <div class="user-card">
+                    <div class="user-details">
+                        
+                        <h2 class="user-name"><%= user.name %></h2>
+                        <p><strong>Username:</strong> <%= user.username %></p>
+                        <p><strong>Email:</strong><%= user.email %></p>
+                        <p><strong>Role:</strong> Administrator</p>
+                    </div>
+                    <div class="user-img-section">
+                        <img class="user-img" src="<%= user.img %>" alt="<%= user.name %>">
+                    </div>
+                </div>
+        
+            </div>
+
+
+
             <div class="overview">
                 <div class="title">
                     <i class="uil uil-tachometer-fast-alt"></i>
@@ -20,12 +40,12 @@
 
                 <div class="boxes">
                     <div class="box box1">
-                        <span class="text">Salary</span>
-                        <span class="number">Spend All total</span>
+                        <span class="text">Total Employees</span>
+                        <span class="number">50</span>
                     </div>
                     <div class="box box2">
-                        <span class="text">Attendance</span>
-                        <span class="number">Progress Report</span>
+                        <span class="text">Currently pressent</span>
+                        <span class="number">40</span>
                     </div>
                     <div class="box box3">
                         <span class="text">Working hours</span>
@@ -66,5 +86,12 @@
             </div>
         </div>
     </section>
+
+    <section class="department"></section>
+    <section class="employee_details"></section>
+    <section class="payroll"></section>
+    <section class="addEmployee"></section>
+
+    
 
     <%- include('partials/footer') %>

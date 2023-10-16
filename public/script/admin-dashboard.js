@@ -3,6 +3,10 @@ const body = document.querySelector("body"),
       sidebar = body.querySelector("nav");
       sidebarToggle = body.querySelector(".sidebar-toggle");
 let getMode = localStorage.getItem("mode");
+
+const dashboard = body.querySelector(".dashboard");
+const department = body.querySelector(".department");
+
 if(getMode && getMode ==="dark"){
     body.classList.toggle("dark");
 }

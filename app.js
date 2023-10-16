@@ -8,6 +8,7 @@ import mysql from "mysql2"
 
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { ifError } from "assert";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -53,7 +54,7 @@ app.get("/", async (req, res) => {
 });
 
   
-app.get("/admin-dashboard", async (req, res) => {
+app.post("/admin-dashboard", async (req, res) => {
     try {
         const Employees = await pool.query("SELECT * FROM Employee");
         res.render("admin-dashboard",{employees : Employees[0]});
@@ -80,39 +81,59 @@ app.get("/logout", (req,res)=>{
   res.redirect("/login");
 })
 
-app.post("/admin-dashboard", async (req, res) => {
-    try {
-        const Employees = await pool.query("SELECT * FROM Employee");
-        res.render("admin-dashboard",{employees : Employees[0]});
+// app.post("/admin-dashboard", async (req, res) => {
+//     try {
+//         const Employees = await pool.query("SELECT * FROM Employee");
+//         res.render("admin-dashboard",{employees : Employees[0]});
         
-    } catch (error) {
-        // Handle errors
-        console.error(error);
-        res.status(500).send('Internal Server Error');
-    } 
-});
+//     } catch (error) {
+//         // Handle errors
+//         console.error(error);
+//         res.status(500).send('Internal Server Error');
+//     } 
+// });
 
 
 
 app.post('/login', async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const {role, username, password } = req.body;
+    if (role==="admin") {
+          const results = await pool.query('SELECT * FROM admin WHERE username =?', [username]);
+          
+          // Check if user with provided username exists
+          if (results.length > 0) {
+            const [user] = results[0];
+            if (password === user.password) {
+              const Employees = await pool.query("SELECT * FROM Employee");
+              res.render("admin-dashboard",{user:user,employees:Employees[0]});
+            } 
+            else {
+              res.send('Incorrect password');
+            }
+          } 
+          else {
+            res.send('User not found');
+          }
       
-    // Fetch user from the database
-    const results = await pool.query('SELECT * FROM Employee WHERE email =?', [username]);
-      
-    // Check if user with provided username exists
-    if (results.length > 0) {
-      const [user] = results[0];
-      if (password === user.password) {
-        res.render("dashboard",{user:user});
-      } 
-      else {
-        res.send('Incorrect password');
-      }
-    } 
-    else {
-      res.send('User not found');
+    } else {
+          // Fetch user from the Employee database
+        const results = await pool.query('SELECT * FROM Employee WHERE email =?', [username]);
+          
+        // Check if user with provided username exists
+        if (results.length > 0) {
+          const [user] = results[0];
+          if (password === user.password) {
+            const Employees = await pool.query("SELECT * FROM Employee");
+            res.render("dashboard",{user:user,employees:Employees[0]});
+          } 
+          else {
+            res.send('Incorrect password');
+          }
+        } 
+        else {
+          res.send('User not found');
+        }
     }
     
   } catch (error) {

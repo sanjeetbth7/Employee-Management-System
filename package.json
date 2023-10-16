@@ -1,0 +1,20 @@
+{
+  "type": "module",
+  "name": "employee-management-systerm",
+  "version": "1.0.0",
+  "description": "\"This is a College Project, Made by Sanjeet and Abhishek\"",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "\"SANJEET KUMAR\"",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "mysql2": "^3.6.2",
+    "path": "^0.12.7"
+  }
+}

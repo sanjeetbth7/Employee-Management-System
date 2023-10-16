@@ -1,0 +1,71 @@
+<%- include('partials/header') %>
+
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+        </div>
+
+        <div class="dash-content">
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <span class="text">Salary</span>
+                        <span class="number">Spend All total</span>
+                    </div>
+                    <div class="box box2">
+                        <span class="text">Attendance</span>
+                        <span class="number">Progress Report</span>
+                    </div>
+                    <div class="box box3">
+                        <span class="text">Working hours</span>
+                        <span class="number">10,120</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i> 
+                     <span class="text">Recent Activity</span>
+                </div>
+
+                <table class="activity-data" >
+                    <thead class="data names">
+                        <tr >
+                            <th class="data-title">UserID</th>
+                            <th class="data-title">Name</th>
+                            <th class="data-title">Email</th>
+                            <th class="data-title">Contact</th>
+                            <th class="data-title">Address</th>
+                            <th class="data-title">Edit</th>
+                        </tr>
+                    </thead>
+                    <tbody class="data names">
+                        <% employees.forEach(employee => { %>
+                        <tr >
+                            <td class="data-list"><%= employee.emp_id %></td>
+                            <td class="data-list"><%= employee.name %></td>
+                            <td class="data-list"><%= employee.email %></td>
+                            <td class="data-list"><%= employee.contact %></td>
+                            <td class="data-list"><%= employee.address %></td>
+                            <td class="data-list"><a href="#">edit now</a></td>
+                        </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>

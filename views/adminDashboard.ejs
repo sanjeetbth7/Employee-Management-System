@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+</head>
+<body>
+
+     <% let i= 1 %>
+     <% employees.forEach(employee => { %>
+         <div class="employeeDetails">
+             <p> <strong><%= i %> Employee Details :---</strong></p>
+             <p><b> Name : </b> <%= employee.name %></p>
+             <p><b> Contact : </b> <%= employee.contact %></p>
+             <p><b> Email : </b> <%= employee.email %></p>
+         </div>
+         <% i++; %>
+     <% }); %>
+         
+</body>
+</html>

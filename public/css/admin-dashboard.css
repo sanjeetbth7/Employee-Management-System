@@ -9,7 +9,7 @@
 
 :root{
     /* ===== Colors ===== */
-    --body-bgcolor: #d6d8e7;
+    --body-bgcolor: #f0f8ff;
     --primary-color: #0E4BF1;
     --panel-color: #FFF;
     --text-color: #000;
@@ -342,3 +342,29 @@ nav.close ~ .dashboard .top{
     width: 100%;
 }
 
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 30px 0;
+}
+
+.title i {
+    position: relative;
+    height: 35px;
+    width: 35px;
+    background-color: var(--primary-color);
+    border-radius: 6px;
+    color: var(--title-icon-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.title .text {
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--text-color);
+    margin-left: 10px;
+}

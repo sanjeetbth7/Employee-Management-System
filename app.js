@@ -67,8 +67,10 @@ app.get("/admin-dashboard", async (req, res) => {
             if (results.length > 0) {
               const [user] = results[0];
               if (curentUser.password === user.password) {
+                const Department= await pool.query("SELECT * FROM department");
+                const Payroll= await pool.query("SELECT * FROM payroll")
                 const Employees = await pool.query("SELECT * FROM Employee");
-                res.render("admin-dashboard",{user:user,employees:Employees[0]});
+                res.render("admin-dashboard",{user:user,employees:Employees[0],payroll:Payroll[0],department:Department[0]});
               } 
               else {
                 res.send('Incorrect password');
@@ -116,8 +118,10 @@ app.post('/login', async (req, res) => {
           if (results.length > 0) {
             const [user] = results[0];
             if (password === user.password) {
+              const Department= await pool.query("SELECT * FROM department");
+              const Payroll= await pool.query("SELECT * FROM payroll")
               const Employees = await pool.query("SELECT * FROM Employee");
-              res.render("admin-dashboard",{user:user,employees:Employees[0]});
+              res.render("admin-dashboard",{user:user,employees:Employees[0],payroll:Payroll[0],department:Department[0]});
             } 
             else {
               res.send('Incorrect password');
@@ -135,8 +139,7 @@ app.post('/login', async (req, res) => {
         if (results.length > 0) {
           const [user] = results[0];
           if (password === user.password) {
-            const Employees = await pool.query("SELECT * FROM Employee");
-            res.render("dashboard",{user:user,employees:Employees[0]});
+            res.render("dashboard",{user:user});
           } 
           else {
             res.send('Incorrect password');

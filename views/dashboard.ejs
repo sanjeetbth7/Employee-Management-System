@@ -2,18 +2,206 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    
+    <!----======== CSS ======== -->
+    <link rel="stylesheet" href="/css/admin-dashboard.css">
+    <link rel="stylesheet" href="/css/table.css">
+    <link rel="stylesheet" href="/css/responsivity.css">
+    <link rel="stylesheet" href="/css/personal-details.css">
+    <link rel="stylesheet" href="/css/form.css">
+    <link rel="stylesheet" href="/css/style.css">
+     
+    <!----===== Iconscout CSS ===== -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <title>Employee Dashboard</title>
 </head>
 <body>
-    <h1>You are on the Dashboard</h1>
-     
-    <div class="employeeDetails">
-        <p> <strong> Welcome! , <%= user.name %></strong></p>
-        <p><b> Name : </b> <%= user.name %></p>
-        <p><b> Contact : </b> <%= user.contact %></p>
-        <p><b> Email : </b> <%= user.email %></p>
-    </div>
-         
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+               <img src="images/logo.png" alt="">
+            </div>
+
+            <span class="logo_name">Welcome</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li value="dashboard" onclick="showSectionDetails('dashboard')"><a href="#">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li value="personal-details" onclick="showSectionDetails('personal-details')"><a href="#">
+                    <i class="uil uil-files-landscapes"></i>
+                    <span class="link-name">Personal Details</span>
+                </a></li>
+                <li value="attendance" onclick="showSectionDetails('attendance')"><a href="#">
+                    <i class="uil uil-chart"></i>
+                    <span class="link-name">Attendance</span>
+                </a></li>
+                <li value="task" onclick="showSectionDetails('task')"><a href="#">
+                    <i class="uil uil-comments"></i>
+                    <span class="link-name">Task Assigned</span>
+                </a></li>
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a href="#">
+                    <i class="uil uil-signout"></i>
+                    <a href="/logout" ><span class="link-name">Logout</span></a>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Dashboard SECTION  -->
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+            
+        </div>
+
+        <div class="dash-content">
+
+            <div class="card">
+
+                <div class="user-card">
+                    <div class="user-details">
+                        
+                        <h2 class="user-name"><%= user.name %></h2>
+                        <p><strong>Phone Number : </strong> <%= user.contact %></p>
+                        <p><strong>Email : </strong><%= user.email %></p>
+                        <p><strong>Role : </strong> <%= user.department %></p>
+                    </div>
+                    <div class="user-img-section">
+                        <img class="user-img" src="<%= user.img %>" alt="<%= user.name %>">
+                    </div>
+                </div>
+        
+            </div>
+
+
+
+            <div class="overview">
+                <div class="title">
+                    <i class="uil uil-tachometer-fast-alt"></i>
+                    <span class="text">Dashboard</span>
+                </div>
+
+                <div class="boxes">
+                    <div class="box box1">
+                        <span class="text">Attendance</span>
+                        <span class="number">15</span>
+                    </div>
+                    <div class="box box2">
+                        <span class="text">Total Leave</span>
+                        <span class="number">05</span>
+                    </div>
+                    <div class="box box3">
+                        <span class="text">Working hours</span>
+                        <span class="number">82</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Details Section  -->
+        <section class="personal-details" style="margin-left: 250px; padding: 5px;">
+            <div class="activity">
+                <div class="title">
+                    <i class="uil uil-clock-three"></i> 
+                     <span class="text">Personal Details</span>
+                </div>
+
+                <div class="user-card">
+                    <div class="user-details">
+                        
+                        <h2 class="user-name"><%= user.name %></h2>
+                        <p><strong>Phone Number : </strong> <%= user.contact %></p>
+                        <p><strong>Email : </strong><%= user.email %></p>
+                        <p><strong>Role : </strong> <%= user.department %></p>
+                        <p><strong>Gender : </strong> <%= user.gender %></p>
+                        <p><strong>D.O.B. : </strong><%= user.dob.toLocaleDateString() %></p>
+                        <p><strong>Address : </strong> <%= user.address %></p>
+
+                    </div>
+                    <div class="user-img-section">
+                        <img class="user-img" src="<%= user.img %>" alt="<%= user.name %>">
+                    </div>
+                </div>
+        
+            </div>
+                
+            </div>
+        </section>
+
+        <!-- Attendance Section  -->
+        <section class="attendance" style="margin-left: 250px; padding: 5px; background-color: aliceblue;">
+            <div class="activity" style="display: flex; justify-content: center; align-items: center;">
+                <div class="report-container">
+                    <h2>Attendance Report</h2>
+                    <canvas class="canvas" id="attendanceChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Task Section  -->
+        <section class="task" style="margin-left: 250px; padding: 5px;">
+            <div class="activity box-form">
+                <div class="title">
+                    <i class="uil uil-chart"></i> 
+                     <span class="text">Task Assigned</span>
+                </div>
+                <div class="user-details myCard" style="padding: 5%;">       
+                    <h2 class="user-name">Current Task :</h2>
+                    <p>
+                        Implement a secure user authentication system for a web application with user registration, login, session management, and password recovery. Ensure security best practices are followed, such as password hashing and protection against common vulnerabilities.
+                    </p>
+            
+                    <p>
+                        <strong>Optional Challenges:</strong>
+                    </p>
+            
+                    <ul>
+                        <li>Implement Two-Factor Authentication (2FA).</li>
+                        <li>Integrate user roles and permissions.</li>
+                        <li>Set up logging and monitoring for user activities.</li>
+                    </ul>
+            
+                    <p>
+                        This task showcases skills in web development, security, and system design.
+                    </p>
+                </div>
+                <div class="form-container">
+                    <label class="form-label" for="task-submission">Submit Task Report</label>
+                    <input class="form-input" type="file" name="task-report" id="task-submission" required>
+                    <input class="form-button" type="button" value="Submit">
+                </div>
+            </div>
+        </section>
+
+    <script src="/script/dashboard.js"></script>
+    <script src="/script/attendance.js"></script>
 </body>
 </html>

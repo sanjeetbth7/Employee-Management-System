@@ -1,4 +1,6 @@
 <%- include('partials/header') %>
+
+<!-- Dashboard SECTION  -->
     <section class="dashboard">
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
@@ -86,14 +88,114 @@
         </div>
     </section>
 
-    <section class="department"></section>
-    <section class="employee_details"></section>
-    <section class="payroll"></section>
+<!-- DEPARTMENT SECTION -->
+
+    <section class="department" style="margin-left: 250px;" >
+        <div class="activity">
+            <div class="title">
+                <i class="uil uil-clock-three"></i> 
+                 <span class="text">Department Details</span>
+            </div>
+            <table class="table">
+                <thead class="th">
+                    <tr class="tr">
+                        <th class="td">jobID</th>
+                        <th class="td">job_dept</th>
+                        <th class="td">Name</th>
+                        <th class="td">Description</th>
+                        <th class="td">Salary Range</th>
+                    </tr>
+                </thead>
+                <tbody class="tb">
+                    <% department.forEach(dept => { %>
+                    <tr class="tr">
+                        <td class="td"><%= dept.job_ID %></td>
+                        <td class="td"><%= dept.job_dept %></td>
+                        <td class="td"><%= dept.name %></td>
+                        <td class="td"><%= dept.description %></td>
+                        <td class="td"><%= dept.salary_range %></td>
+                        
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Employee Details Section  -->
+    <section class="employee_details" style="margin-left: 250px;">
+        <div class="activity">
+            <div class="title">
+                <i class="uil uil-clock-three"></i> 
+                 <span class="text">Employees Details</span>
+            </div>
+            <table class="table">
+                <thead class="th">
+                    <tr class="tr">
+                        <th class="td">UserID</th>
+                        <th class="td">Name</th>
+                        <th class="td">Email</th>
+                        <th class="td">Contact</th>
+                        <th class="td">Address</th>
+                        <th class="td">Edit</th>
+                    </tr>
+                </thead>
+                <tbody class="tb">
+                    <% employees.forEach(employee => { %>
+                    <tr class="tr">
+                        <td class="td"><%= employee.emp_id %></td>
+                        <td class="td"><%= employee.name %></td>
+                        <td class="td"><%= employee.email %></td>
+                        <td class="td"><%= employee.contact %></td>
+                        <td class="td"><%= employee.address %></td>
+                        <td class="td"><a href="#">edit now</a></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- PAYROLL SECTION  -->
+    <section class="payroll" style="margin-left: 250px;">
+        <div class="activity">
+            <div class="title">
+                <i class="uil uil-clock-three"></i> 
+                 <span class="text">Payroll Details</span>
+            </div>
+            <table class="table">
+                <thead class="th">
+                    <tr class="tr">
+                        <th class="td">payID</th>
+                        <th class="td">empID</th>
+                        <th class="td">jobID</th>
+                        <th class="td">salaryID</th>
+                        <th class="td">Date</th>
+                        <th class="td">Amount</th>
+                        <th class="td">Pay</th>
+                    </tr>
+                </thead>
+                <tbody class="tb">
+                    <% payroll.forEach(e => { %>
+                    <tr class="tr">
+                        <td class="td"><%= e.payroll_ID %></td>
+                        <td class="td"><%= e.emp_ID %></td>
+                        <td class="td"><%= e.job_ID %></td>
+                        <td class="td"><%= e.salary_ID %></td>
+                        <td class="td"><%= e.date %></td>
+                        <td class="td"><%= e.total_amount %></td>
+                        <td class="td"><a href="https://www.sbiepay.sbi/secure/transactionTrack">pay now</a></td>
+                    </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </div>
+    </section>
 
 
 
-
-    <section class="addEmployee">
+ <!-- ADD Employee SECTION  -->
+    <section class="addEmployee" style="margin-left: 250px;">
         <div class="container">
             <h2 class="form-title">Add Employee</h2>
             <form id="addEmployeeForm" action="/addEmployee" method="post">

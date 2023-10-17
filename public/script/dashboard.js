@@ -36,10 +36,9 @@ sidebarToggle.addEventListener("click", () => {
 /* Toggle admin pannel */
 
 const dashboard = body.querySelector(".dashboard");
-const department = body.querySelector(".department");
-const employee_details = body.querySelector(".employee_details");
-const payroll = body.querySelector(".payroll");
-const addEmployee = body.querySelector(".addEmployee");
+const personalDetails = body.querySelector(".personal-details");
+const attendance = body.querySelector(".attendance");
+const task = body.querySelector(".task");
 
 
 function showSectionDetails(sectionClass) {
@@ -47,10 +46,9 @@ function showSectionDetails(sectionClass) {
 
     // Hide all admin cards
     dashboard.style.display = "none";
-    department.style.display = "none";
-    employee_details.style.display = "none";
-    payroll.style.display = "none";
-    addEmployee.style.display = "none";
+    personalDetails.style.display = "none";
+    attendance.style.display = "none";
+    task.style.display = "none";
 
     // Show the selected admin card
     const selectedCard = document.querySelector(`.${selectedValue}`);
@@ -62,31 +60,7 @@ function showSectionDetails(sectionClass) {
 showSectionDetails('dashboard');
 
 
-/* Submit add employee from */
-const addEmployeeForm = document.querySelector("#addEmployeeForm")
-// function submitForm() {
-    
-//     const formData = new FormData(addEmployeeForm);
 
-//     console.log(formData);
-//     // Convert FormData to a regular object
-//     const formObject = {};
-//     formData.forEach((value, key) => {
-//         formObject[key] = value;
-//     });
-
-//     console.log(formObject);
-//     fetch('/addEmployee', {
-//         method: 'POST',
-//         body: formObject,
-//     })
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-
-//     console.log(formObject);
-//     addEmployeeForm.reset();
-// }
 
 
 

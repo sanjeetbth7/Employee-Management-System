@@ -1,6 +1,15 @@
 # Employee-Management-System
 Employee Management System (EMS) is a SQL-based project ,created for dbms college project, organizing employee data with features like attendance, payroll, leave management. It enhances overall organizational efficiency. The system empowers administrators to optimize workforce management, boost productivity, and ensure accurate data-driven decision-making
 
+## Team Members
+- Sanjeet Kumar     ( https://github.com/sanjeetbth7 )
+- Abhishek Kumar      ( https://github.com/sheku846 ) 
+
+### Here we have used : 
+- Frontend : HTML, CSS, javaScript,  along with figma design
+- Backend :  node.js , express.js
+- Database :  mySQL
+  
 # Usage
 * Log in to access the admin dashboard.
 * Add employees and provide necessary details.

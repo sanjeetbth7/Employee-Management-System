@@ -71,11 +71,15 @@ Streamline payroll
 ![Employee_personal_details](https://github.com/sheku846/Employee-Management-System/assets/124507626/71b54761-8fe1-41c8-bd97-c220c8df1c8f)
 
 #### Task Assigned
+[![Video Title](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID)
+
 ![task_assigned](https://github.com/sheku846/Employee-Management-System/assets/124507626/40f3f097-7237-454b-8340-d018ca95f3e2)
 
 #### Attendance
 ![employee_attendance_chart](https://github.com/sheku846/Employee-Management-System/assets/124507626/8bf4ff1a-1c2e-467f-a74a-4506bc90693a)
 
 ## Demo Video 
-[![Watch the video]](https://www.youtube.com/watch?v=jA2j2bC0q2Q)
+[![Demo of our Employee Management System Project](https://img.youtube.com/vi/jA2j2bC0q2Q/0.jpg)](https://www.youtube.com/watch?v=jA2j2bC0q2Q)
+
+
 

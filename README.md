@@ -77,5 +77,5 @@ Streamline payroll
 ![employee_attendance_chart](https://github.com/sheku846/Employee-Management-System/assets/124507626/8bf4ff1a-1c2e-467f-a74a-4506bc90693a)
 
 ## Demo Video 
-[![Watch the video](https://i.stack.imgur.com/Vp2cE.png)](https://www.youtube.com/watch?v=jA2j2bC0q2Q)
+[![Watch the video]](https://www.youtube.com/watch?v=jA2j2bC0q2Q)
 

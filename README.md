@@ -4,6 +4,7 @@ Employee Management System (EMS) is a SQL-based project ,created for dbms colleg
 ## Team Members
 - Sanjeet Kumar     ( https://github.com/sanjeetbth7 )
 - Abhishek Kumar      ( https://github.com/sheku846 ) 
+- Sonu Gupta      ( https://github.com/sonugupta07 ) 
 
 ### Here we have used : 
 - Frontend : HTML, CSS, javaScript,  along with figma design
